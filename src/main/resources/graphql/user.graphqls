@@ -1,0 +1,24 @@
+type User{
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    mobileNumber: String
+}
+
+type UserResponse {
+    message: String
+    user: User
+    userList: [User]
+}
+
+type Query{
+    user(id: ID!): UserResponse
+    users: UserResponse
+}
+
+type Mutation {
+    createUser(firstName: String!,lastName: String!, email: String!,mobileNumber: String!): UserResponse
+    updateUser(id: ID!, firstName: String, lastName: String, email: String,mobileNumber: String): UserResponse
+    deleteUser(id: ID!): String
+}
